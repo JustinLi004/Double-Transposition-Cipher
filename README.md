@@ -3,6 +3,7 @@ Repo for Final Cybersec Project; Double Transposition Cipher Context, Encode, De
 
 This is a test to ensure that I have cloned the repo successfully. Please remove before turning in.
 
-#Workload:
+#Workload
+
 Justin: Encode, decode, make the presentation, etc
 Jason: Double transposition cracker.
