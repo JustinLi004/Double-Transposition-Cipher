@@ -3,7 +3,8 @@ import java.util.*;
 
 public class crack {
   public static void main(String[] args) {
-    System.out.println(read_file("b"));
+    String d = read_file("b");
+    // load_array(d, 9);
   }
 
   public static String read_file(String fname) {
@@ -19,5 +20,24 @@ public class crack {
       return encoded.toUpperCase();
     }
     catch (IOException e) { return encoded; }
+  }
+
+  // public static void load_array(String c, String key) {
+  //   String key = key.toUpperCase();
+  //
+  //   int a[][] = new int[(c.length() / keylen) + 1][keylen];
+  //   if (c.length() % keylen == 0) {
+  //     a = new int[c.length() / keylen][keylen];
+  //   }
+  //   System.out.println(a[0].length);
+  //   System.out.println(a.length);
+  // }
+
+  public static int[] key_to_int(String key) {
+    int order[] = new int[key.length()];
+    for (int i = 0; i < key.length(); i++) {
+      System.out.println(key.charAt(i));
+    }
+    return order;
   }
 }
