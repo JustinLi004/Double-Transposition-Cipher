@@ -8,11 +8,48 @@ public class encode {
     String messagepart1 = columnshift(message, keys[0]);
     String messagepart2 = columnshift(message, keys[1]);
     System.out.println(messagepart2);
-
-  }
+    
+}
 
   public static String columnshift(String message, String key){
-  	System.out.println(message +" " + key);
+  	//System.out.println(message);
+  	//System.out.println(key);
+  	int columns = key.length();
+  	int rows = 1 + (message.length()/columns);
+  	int messagelength = message.length();
+  	//System.out.println(columns);
+  	//System.out.println(rows);
+  	char[][] messagematrix = new char[columns][rows];
+  	
+  	char[] messarray = message.toCharArray();
+  	
+  	char[] keyarray = key.toCharArray();
+  	
+  	int charnum = 0;
+  	//populates charmatrix;
+  	for(int i = 0; i < rows; i++){
+  	  if(charnum + 1 == messagelength){
+  	  	break;
+  	  }
+  	  for(int k = 0; k < columns; k++){
+  	  	messagematrix[k][i] = messarray[charnum];
+  	  	System.out.println(messagematrix[k][i] + " ");
+  	  	System.out.print(k);
+  	  	System.out.print(" ");
+  	  	System.out.println(i);
+  	  	
+  	  	charnum++;
+  	  }
+  	  
+  	}
+  	charnum = 0;
+  	for(int i = 0; i < rows; i++){
+  	  for(int k = 0; k < columns; k++){
+  	  	System.out.print(messagematrix[k][i]);
+  	  }
+  	  System.out.println();
+  	}
+  	
   	return message;
   }
 
@@ -50,6 +87,8 @@ public class encode {
   	  File text = new File(arg);
   	  Scanner s = new Scanner(text);
   		String[] wordsin = new String[2];
+  		wordsin[0] = "";
+  		wordsin[1] = "";
   		String holder = "";
       int keynum = 0;
     	while(s.hasNext()){
