@@ -4,10 +4,11 @@ import java.util.*;
 public class crack {
   public static void main(String[] args) {
     String d = read_file("b");
-    // load_array(d, 9);
 
     ArrayList<Integer> order = random_key_int(9);
     order = random_key(order);
+
+    load_array(d, order);
   }
 
   public static String read_file(String fname) {
@@ -25,16 +26,16 @@ public class crack {
     catch (IOException e) { return encoded; }
   }
 
-  // public static void load_array(String c, String key) {
-  //   String key = key.toUpperCase();
-  //
-  //   int a[][] = new int[(c.length() / keylen) + 1][keylen];
-  //   if (c.length() % keylen == 0) {
-  //     a = new int[c.length() / keylen][keylen];
-  //   }
-  //   System.out.println(a[0].length);
-  //   System.out.println(a.length);
-  // }
+  public static void load_array(String c, ArrayList<Integer> o) {
+    char arr[][] = new char[o.size()][c.length() / o.size()];
+    print_matrix(arr);
+  }
+
+  public static void print_matrix(char[][] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      System.out.println(Arrays.toString(arr[i]));
+    }
+  }
 
   public static int[] key_to_int(String key) {
     key = key.toUpperCase();
@@ -58,7 +59,12 @@ public class crack {
   }
 
   public static ArrayList<Integer> random_key(ArrayList<Integer> order) {
-    Collections.swap(order, 1, 2);
+    int r1 = (int) (Math.random() * (float) order.size());
+    int r2 = (int) (Math.random() * (float) order.size());
+    while (r1 == r2) {
+      r2 = (int) (Math.random() * (float) order.size());
+    }
+    Collections.swap(order, r1, r2);
     System.out.println(order.toString());
 
     return order;
