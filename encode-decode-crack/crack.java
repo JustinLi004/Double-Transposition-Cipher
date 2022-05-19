@@ -4,7 +4,7 @@ import java.util.*;
 public class crack {
   public static void main(String[] args) {
     String d = read_file("b");
-
+    System.out.println(d.length());
     ArrayList<Integer> order = random_key_int(9);
     order = random_key(order);
 
@@ -14,7 +14,7 @@ public class crack {
   public static String read_file(String fname) {
     String encoded = "";
     try {
-      File f = new File("test.txt");
+      File f = new File("../test.txt");
       Scanner s = new Scanner(f);
 
       while (s.hasNext()) {
@@ -27,7 +27,14 @@ public class crack {
   }
 
   public static void load_array(String c, ArrayList<Integer> o) {
-    char arr[][] = new char[o.size()][c.length() / o.size()];
+    char arr[][];
+    System.out.println(c.length());
+    if (c.length() % o.size() == 0) {
+      arr = new char[o.size()][c.length() / o.size()];
+    }
+    arr = new char[o.size()][(c.length() / o.size()) + 1];
+    System.out.println(arr.length);
+    System.out.println(arr[0].length);
     print_matrix(arr);
   }
 
@@ -53,7 +60,6 @@ public class crack {
       order.add(i);
     }
     Collections.shuffle(order);
-    System.out.println(order.toString());
 
     return order;
   }
@@ -65,7 +71,6 @@ public class crack {
       r2 = (int) (Math.random() * (float) order.size());
     }
     Collections.swap(order, r1, r2);
-    System.out.println(order.toString());
 
     return order;
   }
