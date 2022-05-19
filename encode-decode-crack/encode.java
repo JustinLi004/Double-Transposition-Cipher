@@ -62,7 +62,7 @@ public class encode {
   				int intchar = (int)(charatx);
   				if((intchar >= 65)&(intchar <=90)) {
 
-  					wordsin = wordsin + String.valueOf(charatx);
+  					wordsin[keynum] = wordsin[keynum] + String.valueOf(charatx);
   					//System.out.println(charatx);
   				}
   				else if((intchar >= 97)&(intchar <= 122)) {
