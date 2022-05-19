@@ -4,6 +4,7 @@ import java.util.*;
 public class crack {
   public static void main(String[] args) {
     String d = read_file("b");
+    key_to_int("describe");
     // load_array(d, 9);
   }
 
@@ -34,10 +35,18 @@ public class crack {
   // }
 
   public static int[] key_to_int(String key) {
+    key = key.toUpperCase();
     int order[] = new int[key.length()];
     for (int i = 0; i < key.length(); i++) {
       System.out.println(key.charAt(i));
     }
     return order;
+  }
+
+  public static int[] random_key(int len) {
+    List<Integer> order = new List<Integer>();
+    for (int i = 0; i < order.length; i++) {
+      order.get(i) = i;
+    }
   }
 }
