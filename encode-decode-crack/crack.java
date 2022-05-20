@@ -19,6 +19,8 @@ public class crack {
   }
 
   public static void crack(String enc) {
+    String bigrams[] = {"TH", "HE", "IN", "EN", "NT", "RE", "ER", "AN", "TI", "ES", "ON", "AT", "SE", "ND", "OR", "AR", "AL", "TE", "CO", "DE", "TO", "RA", "ET", "ED", "IT", "SA", "EM", "RO"};
+    String trigrams[] = {"THE", "AND", "THA", "ENT", "ING", "ION", "TIO", "FOR", "NDE", "HAS", "NCE", "EDT", "TIS", "OFT", "STH", "MEN"};
     int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
     ArrayList<Integer> key = new ArrayList<Integer>();
     for (int i : set_key) {
