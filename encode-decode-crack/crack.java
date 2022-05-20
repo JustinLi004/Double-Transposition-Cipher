@@ -16,9 +16,9 @@ public class crack {
 
     String first_out = decode(d, order);
 
-    set_key[] = {3, 4, 8, 2, 7, 6, 1, 5};
+    int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
     order = new ArrayList<Integer>();
-    for (int i : set_key) {
+    for (int i : set_key2) {
       order.add(i-1);
     }
 
@@ -74,15 +74,13 @@ public class crack {
     }
 
     print_matrix(arr);
-    return stringify(arr);
+    return stringify(arr, c.length());
   }
 
-  public static String stringify(char[][] c) {
+  public static String stringify(char[][] c, int len) {
     String output = "";
-    for (char[] r : c) {
-      for (char ch : r) {
-        output += ch;
-      }
+    for (int i = 0; i < len; i++) {
+      output += c[i%c.length][i/c.length];
     }
     return output;
   }
