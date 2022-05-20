@@ -4,26 +4,41 @@ import java.util.*;
 public class crack {
   public static void main(String[] args) {
     String d = read_file("b");
-    System.out.println(d.length());
-    ArrayList<Integer> order = random_key_int(9);
-    order = random_key(order);
+    // System.out.println(d.length());
+    // ArrayList<Integer> order = random_key_int(9);
+    // order = random_key(order);
+    // int set_key[] = {3, 7, 5, 2, 4, 6, 1, 8};
+    // ArrayList<Integer> key = new ArrayList<Integer>();
+    // for (int i : set_key) {
+    //   key.add(i-1);
+    // }
+    //
+    // System.out.println(decode(d, key));
 
+    crack(d);
+  }
+
+  public static void crack(String enc) {
     int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
-    order = new ArrayList<Integer>();
+    ArrayList<Integer> key = new ArrayList<Integer>();
     for (int i : set_key) {
-      order.add(i-1);
+      key.add(i-1);
     }
 
-    String first_out = decode(d, order);
+    String first_out = decode(enc, key);
 
     int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
-    order = new ArrayList<Integer>();
+    key = new ArrayList<Integer>();
     for (int i : set_key2) {
-      order.add(i-1);
+      key.add(i-1);
     }
 
-    String second_out = decode(first_out, order);
-    System.out.println(second_out);
+    for (int k = 0; k < 10; k++) {
+
+      key = random_key(key);
+      String second_out = decode(first_out, key);
+      System.out.println(second_out);
+    }
   }
 
   public static String read_file(String fname) {
@@ -49,10 +64,7 @@ public class crack {
     //   o.add(i-1);
     // }
 
-    System.out.println(o.toString());
-
     char arr[][];
-    System.out.println(c.length());
 
     int ind = 0;
     if (c.length() % o.size() == 0) {
@@ -63,8 +75,10 @@ public class crack {
     for (int i = 0; i < arr.length; i++) {
       int r = o.indexOf(i);
       for (int j = 0; j < arr[0].length; j++) {
-        arr[r][j] = c.charAt(ind);
-        ind++;
+        if (ind != c.length()) {
+          arr[r][j] = c.charAt(ind);
+          ind++;
+        }
 
         if (j == arr[0].length - 1 && r >= c.length() % o.size()) {
           ind--;
@@ -72,8 +86,6 @@ public class crack {
         }
       }
     }
-
-    print_matrix(arr);
     return stringify(arr, c.length());
   }
 
