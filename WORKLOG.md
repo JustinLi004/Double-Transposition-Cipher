@@ -14,6 +14,8 @@ Worked on encode input/output.
 ???
 
 #Jason Zhou
+##5/16 - 5/18
+Researching double transposition ciphers and strategies to crack without keys
+
 ##5/19
-
-
+Worked on generating keys, and correctly populating the array based on randomly generated keys
