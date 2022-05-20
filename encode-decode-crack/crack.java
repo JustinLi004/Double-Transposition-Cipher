@@ -8,7 +8,22 @@ public class crack {
     ArrayList<Integer> order = random_key_int(9);
     order = random_key(order);
 
-    load_array(d, order);
+    int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
+    order = new ArrayList<Integer>();
+    for (int i : set_key) {
+      order.add(i-1);
+    }
+
+    String first_out = decode(d, order);
+
+    set_key[] = {3, 4, 8, 2, 7, 6, 1, 5};
+    order = new ArrayList<Integer>();
+    for (int i : set_key) {
+      order.add(i-1);
+    }
+
+    String second_out = decode(first_out, order);
+    System.out.println(second_out);
   }
 
   public static String read_file(String fname) {
@@ -26,16 +41,50 @@ public class crack {
     catch (IOException e) { return encoded; }
   }
 
-  public static void load_array(String c, ArrayList<Integer> o) {
+  public static String decode(String c, ArrayList<Integer> o) {
+
+    // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
+    // o = new ArrayList<Integer>();
+    // for (int i : set_key) {
+    //   o.add(i-1);
+    // }
+
+    System.out.println(o.toString());
+
     char arr[][];
     System.out.println(c.length());
+
+    int ind = 0;
     if (c.length() % o.size() == 0) {
       arr = new char[o.size()][c.length() / o.size()];
     }
     arr = new char[o.size()][(c.length() / o.size()) + 1];
-    System.out.println(arr.length);
-    System.out.println(arr[0].length);
+
+    for (int i = 0; i < arr.length; i++) {
+      int r = o.indexOf(i);
+      for (int j = 0; j < arr[0].length; j++) {
+        arr[r][j] = c.charAt(ind);
+        ind++;
+
+        if (j == arr[0].length - 1 && r >= c.length() % o.size()) {
+          ind--;
+          arr[r][j] = ' ';
+        }
+      }
+    }
+
     print_matrix(arr);
+    return stringify(arr);
+  }
+
+  public static String stringify(char[][] c) {
+    String output = "";
+    for (char[] r : c) {
+      for (char ch : r) {
+        output += ch;
+      }
+    }
+    return output;
   }
 
   public static void print_matrix(char[][] arr) {
