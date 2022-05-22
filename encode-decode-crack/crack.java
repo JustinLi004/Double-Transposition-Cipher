@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.regex.*;
 
 public class crack {
   public static void main(String[] args) {
@@ -19,28 +20,64 @@ public class crack {
   }
 
   public static void crack(String enc) {
-    String bigrams[] = {"TH", "HE", "IN", "EN", "NT", "RE", "ER", "AN", "TI", "ES", "ON", "AT", "SE", "ND", "OR", "AR", "AL", "TE", "CO", "DE", "TO", "RA", "ET", "ED", "IT", "SA", "EM", "RO"};
-    String trigrams[] = {"THE", "AND", "THA", "ENT", "ING", "ION", "TIO", "FOR", "NDE", "HAS", "NCE", "EDT", "TIS", "OFT", "STH", "MEN"};
-    int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
-    ArrayList<Integer> key = new ArrayList<Integer>();
-    for (int i : set_key) {
-      key.add(i-1);
-    }
+    // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
+    // ArrayList<Integer> key = new ArrayList<Integer>();
+    // for (int i : set_key) {
+    //   key.add(i-1);
+    // }
+
+    ArrayList<Integer> key = random_key_int(9);
 
     String first_out = decode(enc, key);
 
-    int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
-    key = new ArrayList<Integer>();
-    for (int i : set_key2) {
-      key.add(i-1);
-    }
+    // int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
+    // key = new ArrayList<Integer>();
+    // for (int i : set_key2) {
+    //   key.add(i-1);
+    // }
+
+    key = random_key_int(7);
 
     for (int k = 0; k < 10; k++) {
 
       key = random_key(key);
       String second_out = decode(first_out, key);
-      System.out.println(second_out);
+      float s = score(second_out);
+
+      System.out.println(s + "\t" + second_out);
     }
+  }
+
+  public static float score(String enc) {
+    String bigrams[] = {"TH", "HE", "IN", "EN", "NT", "RE", "ER", "AN", "TI", "ES", "ON", "AT", "SE", "ND", "OR", "AR", "AL", "TE", "CO", "DE", "TO", "RA", "ET", "ED", "IT", "SA", "EM", "RO"};
+    String trigrams[] = {"THE", "AND", "THA", "ENT", "ING", "ION", "TIO", "FOR", "NDE", "HAS", "NCE", "EDT", "TIS", "OFT", "STH", "MEN"};
+
+    float score = 0;
+    for (String b: bigrams) {
+      Pattern p = Pattern.compile(b);
+      Matcher m = p.matcher(enc);
+
+      int count = 0;
+      while (m.find()) {
+        count++;
+      }
+
+      score += 0.5 * count;
+    }
+
+    for (String t: trigrams) {
+      Pattern p = Pattern.compile(t);
+      Matcher m = p.matcher(enc);
+
+      int count = 0;
+      while (m.find()) {
+        count++;
+      }
+
+      score += 2 * count;
+    }
+
+    return score;
   }
 
   public static String read_file(String fname) {
