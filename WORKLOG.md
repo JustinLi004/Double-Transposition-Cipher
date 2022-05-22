@@ -18,6 +18,9 @@ Out travelling.
 
 (18:46) More work on encode.java, this time working on the way encode.java handles keys. After this it will then use the keys to 'strip' off columns from the double matrix, which would mean that encode.java is effectvely done.
 
+(19:25) More work done on encode, most of it works, but ran into a bug that I have at the moment no idea how to fix. Essentially -- the double transposition cipher involves lining up the message under a key and then taking off the columns in the alphabetical order of the key's letters. I accomplished this by making two key arrays -- one that held the original key, one with all the letters arrayed. However, this failed to account for the fact that there can be multiple identical letters in a key, and this is handled by numbering the keys from left to right. I do not know a solution at the moment.
+
+
 #Jason Zhou
 ##5/16 - 5/18
 Researching double transposition ciphers and strategies to crack without keys
