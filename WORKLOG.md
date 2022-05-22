@@ -11,7 +11,11 @@ Worked on encode. Input/output works fine, moving on to the actual cipher itself
 (As of 5/19)Taking AP Calculus & AP Government Exam. Unsure at current time if able to work on 5/20.
 
 ##5/21
-???
+Out travelling.
+
+##5/22
+(12:25pm) Made progress with encode.java; specifically with the columnshift function. Now loads message into a double array properly. Hopefully by end of day I should have at least encode.java working properly; decode.java will follow easily and naturally from there.
+
 
 #Jason Zhou
 ##5/16 - 5/18
