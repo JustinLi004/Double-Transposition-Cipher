@@ -37,14 +37,22 @@ public class crack {
     // }
 
     key = random_key_int(7);
-
-    for (int k = 0; k < 10; k++) {
+    ArrayList<Integer> high_key = new ArrayList<Integer>();
+    float highest = 0;
+    for (int k = 0; k < 100000; k++) {
 
       key = random_key(key);
       String second_out = decode(first_out, key);
       float s = score(second_out);
 
-      System.out.println(s + "\t" + second_out);
+      if (s > highest) {
+        highest = s;
+        high_key = key;
+        System.out.println(s + "\t" + second_out);
+      }
+      else {
+        key = high_key;
+      }
     }
   }
 
@@ -62,7 +70,7 @@ public class crack {
         count++;
       }
 
-      score += 0.5 * count;
+      score += (0.5 * count);
     }
 
     for (String t: trigrams) {
@@ -74,7 +82,7 @@ public class crack {
         count++;
       }
 
-      score += 2 * count;
+      score += (3 * count);
     }
 
     return score;
