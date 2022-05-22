@@ -6,7 +6,7 @@ public class encode {
     String message = wordsin(args[0]);
     String[] keys = keygrabber(args[1]);
     String messagepart1 = columnshift(message, keys[0]);
-    String messagepart2 = columnshift(message, keys[1]);
+    String messagepart2 = columnshift(messagepart1, keys[1]);
     System.out.println(messagepart2);
     
 }
@@ -25,32 +25,31 @@ public class encode {
   	
   	char[] keyarray = key.toCharArray();
   	
+  	int[] keyarrayint = new int[keyarray.length];
+  	
+  	String messageshift = "";
+  	
   	int charnum = 0;
   	//populates charmatrix;
   	for(int i = 0; i < rows; i++){
-  	  if(charnum + 1 == messagelength){
-  	  	break;
-  	  }
   	  for(int k = 0; k < columns; k++){
+  	  	if(charnum >= messagelength){
+  	  		messagematrix[k][i] = 'Z';
+		}
+		else{
   	  	messagematrix[k][i] = messarray[charnum];
-  	  	System.out.println(messagematrix[k][i] + " ");
-  	  	System.out.print(k);
-  	  	System.out.print(" ");
-  	  	System.out.println(i);
-  	  	
   	  	charnum++;
+  	  	}
+  	  	System.out.print(messagematrix[k][i] + " ");
+  	  	
   	  }
+  	  System.out.println();
   	  
   	}
   	charnum = 0;
-  	for(int i = 0; i < rows; i++){
-  	  for(int k = 0; k < columns; k++){
-  	  	System.out.print(messagematrix[k][i]);
-  	  }
-  	  System.out.println();
-  	}
   	
-  	return message;
+  	
+  	return messageshift;
   }
 
 
