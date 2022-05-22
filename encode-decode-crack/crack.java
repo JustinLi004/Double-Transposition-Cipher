@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.regex.*;
 
 public class crack {
   public static void main(String[] args) {
@@ -15,38 +16,142 @@ public class crack {
     //
     // System.out.println(decode(d, key));
 
-    crack(d);
+    single_crack(d);
+  }
+
+  public static void single_crack(String enc) {
+    // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
+    // ArrayList<Integer> key = new ArrayList<Integer>();
+    // for (int i : set_key) {
+    //   key.add(i-1);
+    // }
+
+    ArrayList<Integer> key1 = random_key_int(6);
+    ArrayList<Integer> high_key = new ArrayList<Integer>();
+    String first_out = decode(enc, key1);
+
+    // int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
+    // key = new ArrayList<Integer>();
+    // for (int i : set_key2) {
+    //   key.add(i-1);
+    // }
+
+    float highest = 0;
+    int counter = 0;
+
+    for (int k = 0; k < 1000000; k++) {
+
+      key1 = random_key(key1);
+      first_out = decode(enc, key1);
+      float s = score(first_out);
+
+      if (s > highest) {
+        highest = s;
+        high_key = key1;
+        System.out.println(s + "\t" + first_out);
+      }
+      else {
+        key1 = high_key;
+      }
+    }
   }
 
   public static void crack(String enc) {
+    // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
+    // ArrayList<Integer> key = new ArrayList<Integer>();
+    // for (int i : set_key) {
+    //   key.add(i-1);
+    // }
+
+    ArrayList<Integer> key1 = random_key_int(6);
+
+    String first_out = decode(enc, key1);
+
+    // int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
+    // key = new ArrayList<Integer>();
+    // for (int i : set_key2) {
+    //   key.add(i-1);
+    // }
+
+    ArrayList<Integer> key2 = random_key_int(7);
+    ArrayList<Integer> high_key = new ArrayList<Integer>();
+    float highest = 0;
+    int counter = 0;
+
+    for (int k = 0; k < 1000000; k++) {
+
+      key2 = random_key(key2);
+      String second_out = decode(first_out, key2);
+      float s = score(second_out);
+
+      if (s > highest) {
+        highest = s;
+        high_key = key2;
+        counter = 0;
+        System.out.println(s + "\t" + second_out);
+      }
+      else {
+        key2 = high_key;
+        counter++;
+      }
+
+      if (counter > 100) {
+        counter = 0;
+        key1 = random_key(key1);
+        first_out = decode(enc, key1);
+      }
+    }
+  }
+
+  public static float score(String enc) {
     String bigrams[] = {"TH", "HE", "IN", "EN", "NT", "RE", "ER", "AN", "TI", "ES", "ON", "AT", "SE", "ND", "OR", "AR", "AL", "TE", "CO", "DE", "TO", "RA", "ET", "ED", "IT", "SA", "EM", "RO"};
     String trigrams[] = {"THE", "AND", "THA", "ENT", "ING", "ION", "TIO", "FOR", "NDE", "HAS", "NCE", "EDT", "TIS", "OFT", "STH", "MEN"};
-    int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
-    ArrayList<Integer> key = new ArrayList<Integer>();
-    for (int i : set_key) {
-      key.add(i-1);
+    String desired_words[] = {"BULL"};
+
+    float score = 0;
+    for (String b: bigrams) {
+      Pattern p = Pattern.compile(b);
+      Matcher m = p.matcher(enc);
+
+      int count = 0;
+      while (m.find()) {
+        count++;
+      }
+
+      score += (0.5 * count);
     }
 
-    String first_out = decode(enc, key);
+    for (String t: trigrams) {
+      Pattern p = Pattern.compile(t);
+      Matcher m = p.matcher(enc);
 
-    int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
-    key = new ArrayList<Integer>();
-    for (int i : set_key2) {
-      key.add(i-1);
+      int count = 0;
+      while (m.find()) {
+        count++;
+      }
+
+      score += (3 * count);
     }
 
-    for (int k = 0; k < 10; k++) {
+    for (String d: desired_words) {
+      Pattern p = Pattern.compile(d);
+      Matcher m = p.matcher(enc);
 
-      key = random_key(key);
-      String second_out = decode(first_out, key);
-      System.out.println(second_out);
+      int count = 0;
+      while (m.find()) {
+        count++;
+      }
+
+      score += (100 * count);
     }
+
+    return score;
   }
 
   public static String read_file(String fname) {
     String encoded = "";
     try {
-      File f = new File("../test.txt");
+      File f = new File("../b.txt");
       Scanner s = new Scanner(f);
 
       while (s.hasNext()) {
