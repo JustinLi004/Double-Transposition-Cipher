@@ -15,6 +15,7 @@ Out travelling.
 
 ##5/22
 (12:25) Made progress with encode.java; specifically with the columnshift function. Now loads message into a double array properly. Hopefully by end of day I should have at least encode.java working properly; decode.java will follow easily and naturally from there.
+
 (18:46) More work on encode.java, this time working on the way encode.java handles keys. After this it will then use the keys to 'strip' off columns from the double matrix, which would mean that encode.java is effectvely done.
 
 #Jason Zhou
