@@ -26,9 +26,9 @@ public class crack {
     //   key.add(i-1);
     // }
 
-    ArrayList<Integer> key = random_key_int(9);
+    ArrayList<Integer> key1 = random_key_int(9);
 
-    String first_out = decode(enc, key);
+    String first_out = decode(enc, key1);
 
     // int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
     // key = new ArrayList<Integer>();
@@ -36,22 +36,31 @@ public class crack {
     //   key.add(i-1);
     // }
 
-    key = random_key_int(7);
+    ArrayList<Integer> key2 = random_key_int(7);
     ArrayList<Integer> high_key = new ArrayList<Integer>();
     float highest = 0;
-    for (int k = 0; k < 100000; k++) {
+    int counter = 0;
 
-      key = random_key(key);
-      String second_out = decode(first_out, key);
+    for (int k = 0; k < 1000000; k++) {
+
+      key2 = random_key(key2);
+      String second_out = decode(first_out, key2);
       float s = score(second_out);
 
       if (s > highest) {
         highest = s;
-        high_key = key;
+        high_key = key2;
+        counter = 0;
         System.out.println(s + "\t" + second_out);
       }
       else {
-        key = high_key;
+        key2 = high_key;
+        counter++;
+      }
+
+      if (counter > 1000) {
+        key1 = random_key(key1);
+        first_out = decode(enc, key1);
       }
     }
   }
