@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+
 import java.lang.Math;
 public class encode {
   public static void main(String[] args) throws FileNotFoundException {
@@ -25,8 +26,19 @@ public class encode {
   	
   	char[] keyarray = key.toCharArray();
   	
-  	int[] keyarrayint = new int[keyarray.length];
-  	
+  	char[] keyarray1 = new char[keyarray.length];
+  	for(int i = 0; i < keyarray1.length; i++){
+  		keyarray1[i] = keyarray[i];
+  	}
+  	Arrays.sort(keyarray1);
+  	for(int i = 0; i < keyarray1.length; i++){
+  		System.out.print(keyarray1[i] + " ");
+  	}
+  	System.out.println();
+  	for(int i = 0; i < keyarray1.length; i++){
+  		System.out.print(keyarray[i] + " ");
+  	}
+  	System.out.println();
   	String messageshift = "";
   	
   	int charnum = 0;
