@@ -37,6 +37,9 @@ Worked on testing a double decode given two random keys and outputting the resul
 #5/22
 Testing a simple hill climbing method where the code searches for common bigrams, trigrams and scores the string. Code has a tendency towards strings with higher scores.
 
+#5/23
+Worked on tweaking scoring and scoring strings higher if they contain expected words and a sufficiently large substring.
+
 #Sources
 Initial information + encoding/decoding methodology
 https://www.pbs.org/wgbh/nova/decoding/doubtrans.html#:~:text=Double%20Transposition%20consists%20of%20two,they%20may%20use%20different%20keys.&text=Now%20number%20the%20letters%20in%20the%20keyword%20in%20alphabetical%20order.
