@@ -16,7 +16,7 @@ public class crack {
     //
     // System.out.println(decode(d, key));
 
-    single_crack(d);
+    crack(d);
   }
 
   public static void single_crack(String enc) {
@@ -63,7 +63,7 @@ public class crack {
     //   key.add(i-1);
     // }
 
-    ArrayList<Integer> key1 = random_key_int(6);
+    ArrayList<Integer> key1 = random_key_int(9);
 
     String first_out = decode(enc, key1);
 
@@ -95,7 +95,8 @@ public class crack {
         counter++;
       }
 
-      if (counter > 100) {
+      if (counter > 5000) {
+        k = k - 5000;
         counter = 0;
         key1 = random_key(key1);
         first_out = decode(enc, key1);
@@ -106,7 +107,7 @@ public class crack {
   public static float score(String enc) {
     String bigrams[] = {"TH", "HE", "IN", "EN", "NT", "RE", "ER", "AN", "TI", "ES", "ON", "AT", "SE", "ND", "OR", "AR", "AL", "TE", "CO", "DE", "TO", "RA", "ET", "ED", "IT", "SA", "EM", "RO"};
     String trigrams[] = {"THE", "AND", "THA", "ENT", "ING", "ION", "TIO", "FOR", "NDE", "HAS", "NCE", "EDT", "TIS", "OFT", "STH", "MEN"};
-    String desired_words[] = {"BULL"};
+    String desired_words[] = {"MOTHER", "FATHER", "HAMSTER", "ELDERBERRIES"};
 
     float score = 0;
     for (String b: bigrams) {
@@ -134,15 +135,17 @@ public class crack {
     }
 
     for (String d: desired_words) {
-      Pattern p = Pattern.compile(d);
-      Matcher m = p.matcher(enc);
+      for (int i = 0; i < d.length() - 3; i++) {
+        Pattern p = Pattern.compile(d.substring(i, i + 3));
+        Matcher m = p.matcher(enc);
 
-      int count = 0;
-      while (m.find()) {
-        count++;
+        int count = 0;
+        while (m.find()) {
+          count++;
+        }
+
+        score += (100 * count);
       }
-
-      score += (100 * count);
     }
 
     return score;
@@ -151,7 +154,7 @@ public class crack {
   public static String read_file(String fname) {
     String encoded = "";
     try {
-      File f = new File("../b.txt");
+      File f = new File("../test.txt");
       Scanner s = new Scanner(f);
 
       while (s.hasNext()) {
