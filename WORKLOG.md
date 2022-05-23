@@ -20,6 +20,9 @@ Out travelling.
 
 (19:25) More work done on encode, most of it works, but ran into a bug that I have at the moment no idea how to fix. Essentially -- the double transposition cipher involves lining up the message under a key and then taking off the columns in the alphabetical order of the key's letters. I accomplished this by making two key arrays -- one that held the original key, one with all the letters arrayed. However, this failed to account for the fact that there can be multiple identical letters in a key, and this is handled by numbering the keys from left to right. I do not know a solution at the moment.
 
+##5/23
+(15:15)Encode officially works, probably! Will test further throughout the day and begin work on decode.java.
+
 
 #Jason Zhou
 ##5/16 - 5/18

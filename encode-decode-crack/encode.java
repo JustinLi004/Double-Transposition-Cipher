@@ -10,9 +10,25 @@ public class encode {
     System.out.println(messagepart1);
     String messagepart2 = columnshift(messagepart1, keys[1]);
     System.out.println(messagepart2);
-    
-}
 
+}
+  public static int[] keyarraymaker(char[] keyarray){
+
+    int[] keyarray1 = new int[keyarray.length];
+    // for(int i = 0; i < keyarray1.length; i++){
+    // 	keyarray1[i] = keyarray[i];
+    // }
+    // Arrays.sort(keyarray1);
+    // for(int i = 0; i < keyarray1.length; i++){
+    // 	System.out.print(keyarray1[i] + " ");
+    // }
+    // System.out.println();
+    // for(int i = 0; i < keyarray1.length; i++){
+    // 	System.out.print(keyarray[i] + " ");
+    // }
+    // System.out.println();
+    return keyarray1;
+  }
   public static String columnshift(String message, String key){
   	//System.out.println(message);
   	//System.out.println(key);
@@ -22,11 +38,12 @@ public class encode {
   	//System.out.println(columns);
   	//System.out.println(rows);
   	char[][] messagematrix = new char[columns][rows];
-  	
+
   	char[] messarray = message.toCharArray();
-  	
+
   	char[] keyarray = key.toCharArray();
-  	
+    //char[] keyarray1 = keyarraymaker(keyarray);
+
   	char[] keyarray1 = new char[keyarray.length];
   	for(int i = 0; i < keyarray1.length; i++){
   		keyarray1[i] = keyarray[i];
@@ -41,7 +58,7 @@ public class encode {
   	}
   	System.out.println();
   	String messageshift = "";
-  	
+
   	int charnum = 0;
   	//populates charmatrix;
   	for(int i = 0; i < rows; i++){
@@ -55,10 +72,10 @@ public class encode {
   	  	charnum++;
   	  	}
   	  	System.out.print(messagematrix[k][i] + " ");
-  	  	
+
   	  }
   	  System.out.println();
-  	  
+
   	}
   	charnum = 0;
   	int len = keyarray.length;
@@ -66,22 +83,24 @@ public class encode {
   		char current = keyarray1[i];
   		for(int k = 0; k < len; k++){
   			if(keyarray[k] == current){
-  				
+
   				String append = "";
   				for(int n = 0; n < messagematrix[k].length; n++){
   					if((int)messagematrix[k][n] != 0){
   						append = append + messagematrix[k][n];
-  					}
+            }
+
   					else{
   						continue;
   					}
   				}
+          keyarray[k] = '*';
   				messageshift = messageshift + append;
   				System.out.println(messageshift);
   			}
   		}
   	}
-  	
+
   	return messageshift;
   }
 
