@@ -7,28 +7,11 @@ public class encode {
     String message = wordsin(args[0]);
     String[] keys = keygrabber(args[1]);
     String messagepart1 = columnshift(message, keys[0]);
-    System.out.println(messagepart1);
+    //System.out.println(messagepart1);
     String messagepart2 = columnshift(messagepart1, keys[1]);
     System.out.println(messagepart2);
 
 }
-  public static int[] keyarraymaker(char[] keyarray){
-
-    int[] keyarray1 = new int[keyarray.length];
-    // for(int i = 0; i < keyarray1.length; i++){
-    // 	keyarray1[i] = keyarray[i];
-    // }
-    // Arrays.sort(keyarray1);
-    // for(int i = 0; i < keyarray1.length; i++){
-    // 	System.out.print(keyarray1[i] + " ");
-    // }
-    // System.out.println();
-    // for(int i = 0; i < keyarray1.length; i++){
-    // 	System.out.print(keyarray[i] + " ");
-    // }
-    // System.out.println();
-    return keyarray1;
-  }
   public static String columnshift(String message, String key){
   	//System.out.println(message);
   	//System.out.println(key);
@@ -49,14 +32,14 @@ public class encode {
   		keyarray1[i] = keyarray[i];
   	}
   	Arrays.sort(keyarray1);
-  	for(int i = 0; i < keyarray1.length; i++){
-  		System.out.print(keyarray1[i] + " ");
-  	}
-  	System.out.println();
-  	for(int i = 0; i < keyarray1.length; i++){
-  		System.out.print(keyarray[i] + " ");
-  	}
-  	System.out.println();
+  	//for(int i = 0; i < keyarray1.length; i++){
+  	//	System.out.print(keyarray1[i] + " ");
+  	//}
+  	//System.out.println();
+  	//for(int i = 0; i < keyarray1.length; i++){
+  	//	System.out.print(keyarray[i] + " ");
+  	//}
+  	//System.out.println();
   	String messageshift = "";
 
   	int charnum = 0;
@@ -71,10 +54,10 @@ public class encode {
   	  	messagematrix[k][i] = messarray[charnum];
   	  	charnum++;
   	  	}
-  	  	System.out.print(messagematrix[k][i] + " ");
+  	  	//System.out.print(messagematrix[k][i] + " ");
 
   	  }
-  	  System.out.println();
+  	  //System.out.println();
 
   	}
   	charnum = 0;
@@ -96,7 +79,7 @@ public class encode {
   				}
           keyarray[k] = '*';
   				messageshift = messageshift + append;
-  				System.out.println(messageshift);
+  				//System.out.println(messageshift);
   			}
   		}
   	}
@@ -118,7 +101,7 @@ public class encode {
   			for(int x = 0; x < leng; x++) {
   				char charatx = holder.charAt(x);
   				int intchar = (int)(charatx);
-  				if((intchar >= 65)&(intchar <=90)) {
+  				if(((intchar >= 65)&(intchar <=90)) || ((intchar >= 48) & (intchar <= 57))) {
 
   					wordsin = wordsin + String.valueOf(charatx);
   					//System.out.println(charatx);
@@ -150,7 +133,7 @@ public class encode {
   			for(int x = 0; x < leng; x++) {
   				char charatx = holder.charAt(x);
   				int intchar = (int)(charatx);
-  				if((intchar >= 65)&(intchar <=90)) {
+  				if(((intchar >= 65)&(intchar <=90)) || ((intchar >= 48) & (intchar <= 57))) {
 
   					wordsin[keynum] = wordsin[keynum] + String.valueOf(charatx);
   					//System.out.println(charatx);

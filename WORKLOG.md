@@ -22,7 +22,7 @@ Out travelling.
 
 ##5/23
 (15:15)Encode officially works, probably! Will test further throughout the day and begin work on decode.java.
-
+(15:35)Modified to allow taking numbers in the message. Testing has revealed no problems so far.
 
 #Jason Zhou
 ##5/16 - 5/18
