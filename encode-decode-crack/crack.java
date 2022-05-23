@@ -58,12 +58,12 @@ public class crack {
 
   public static void crack(String enc) {
     // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
-    // ArrayList<Integer> key = new ArrayList<Integer>();
+    // ArrayList<Integer> key1 = new ArrayList<Integer>();
     // for (int i : set_key) {
-    //   key.add(i-1);
+    //   key1.add(i-1);
     // }
 
-    ArrayList<Integer> key1 = random_key_int(9);
+    ArrayList<Integer> key1 = random_key_int(7);
 
     String first_out = decode(enc, key1);
 
@@ -119,7 +119,7 @@ public class crack {
         count++;
       }
 
-      score += (0.5 * count);
+      score += (1 * count);
     }
 
     for (String t: trigrams) {
@@ -131,20 +131,22 @@ public class crack {
         count++;
       }
 
-      score += (3 * count);
+      score += (3.5 * count);
     }
 
     for (String d: desired_words) {
-      for (int i = 0; i < d.length() - 3; i++) {
-        Pattern p = Pattern.compile(d.substring(i, i + 3));
-        Matcher m = p.matcher(enc);
+      for (int j = 3; j < d.length(); j++) {
+        for (int i = 0; i < d.length() - j; i++) {
+          Pattern p = Pattern.compile(d.substring(i, i + 3));
+          Matcher m = p.matcher(enc);
 
-        int count = 0;
-        while (m.find()) {
-          count++;
+          int count = 0;
+          while (m.find()) {
+            count++;
+          }
+
+          score += (40 * j * count);
         }
-
-        score += (100 * count);
       }
     }
 
@@ -154,7 +156,7 @@ public class crack {
   public static String read_file(String fname) {
     String encoded = "";
     try {
-      File f = new File("../test.txt");
+      File f = new File("../d.txt");
       Scanner s = new Scanner(f);
 
       while (s.hasNext()) {
