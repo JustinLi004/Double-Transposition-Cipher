@@ -4,7 +4,12 @@ import java.util.regex.*;
 
 public class crack {
   public static void main(String[] args) {
-    String d = read_file("b");
+    if (args.length == 0) {
+      System.out.println("USAGE:");
+      System.out.println("make crack <filename path> <config file path>");
+      return;
+    }
+    String d = read_file(args[0]);
     // System.out.println(d.length());
     // ArrayList<Integer> order = random_key_int(9);
     // order = random_key(order);
@@ -57,13 +62,15 @@ public class crack {
   }
 
   public static void crack(String enc) {
+
+    if (enc.length() == 0) return;
     // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
     // ArrayList<Integer> key1 = new ArrayList<Integer>();
     // for (int i : set_key) {
     //   key1.add(i-1);
     // }
 
-    ArrayList<Integer> key1 = random_key_int(7);
+    ArrayList<Integer> key1 = random_key_int(6);
 
     String first_out = decode(enc, key1);
 
@@ -73,7 +80,7 @@ public class crack {
     //   key.add(i-1);
     // }
 
-    ArrayList<Integer> key2 = random_key_int(7);
+    ArrayList<Integer> key2 = random_key_int(6);
     ArrayList<Integer> high_key = new ArrayList<Integer>();
     float highest = 0;
     int counter = 0;
@@ -135,18 +142,14 @@ public class crack {
     }
 
     for (String d: desired_words) {
-      for (int j = 3; j < d.length(); j++) {
-        for (int i = 0; i < d.length() - j; i++) {
-          Pattern p = Pattern.compile(d.substring(i, i + 3));
-          Matcher m = p.matcher(enc);
-
-          int count = 0;
-          while (m.find()) {
-            count++;
-          }
-
-          score += (40 * j * count);
+      for (int i = 0; i < d.length() - 3; i++) {
+        Pattern p = Pattern.compile(d.substring(i, i + 3));
+        Matcher m = p.matcher(enc);
+        int count = 0;
+        while (m.find()) {
+          count++;
         }
+        score += (100 * count);
       }
     }
 
@@ -156,7 +159,7 @@ public class crack {
   public static String read_file(String fname) {
     String encoded = "";
     try {
-      File f = new File("../d.txt");
+      File f = new File(fname);
       Scanner s = new Scanner(f);
 
       while (s.hasNext()) {
@@ -165,7 +168,8 @@ public class crack {
 
       return encoded.toUpperCase();
     }
-    catch (IOException e) { return encoded; }
+    catch (IOException e) { System.out.println("File Not Found");
+      return encoded; }
   }
 
   public static String decode(String c, ArrayList<Integer> o) {
