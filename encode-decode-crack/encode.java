@@ -28,9 +28,11 @@ public class encode {
     //char[] keyarray1 = keyarraymaker(keyarray);
 
   	char[] keyarray1 = new char[keyarray.length];
-  	for(int i = 0; i < keyarray1.length; i++){
+    for(int i = 0; i < keyarray1.length; i++){
   		keyarray1[i] = keyarray[i];
+      System.out.print(keyarray[i] + " ");
   	}
+    System.out.println();
   	Arrays.sort(keyarray1);
   	//for(int i = 0; i < keyarray1.length; i++){
   	//	System.out.print(keyarray1[i] + " ");
@@ -40,8 +42,7 @@ public class encode {
   	//	System.out.print(keyarray[i] + " ");
   	//}
   	//System.out.println();
-  	String messageshift = "";
-
+  	//String messageshift = "";
   	int charnum = 0;
   	//populates charmatrix;
   	for(int i = 0; i < rows; i++){
@@ -54,10 +55,10 @@ public class encode {
   	  	messagematrix[k][i] = messarray[charnum];
   	  	charnum++;
   	  	}
-  	  	//System.out.print(messagematrix[k][i] + " ");
+  	  	System.out.print(messagematrix[k][i] + " ");
 
   	  }
-  	  //System.out.println();
+  	  System.out.println();
 
   	}
   	charnum = 0;
