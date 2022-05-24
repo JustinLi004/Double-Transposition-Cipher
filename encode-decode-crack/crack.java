@@ -4,9 +4,9 @@ import java.util.regex.*;
 
 public class crack {
   public static void main(String[] args) {
-    if (args.length == 0) {
+    if (args.length < 2) {
       System.out.println("USAGE:");
-      System.out.println("make crack <filename path> <config file path>");
+      System.out.println("make crack ARGS=\"<filename path> <config file path>\"");
       return;
     }
     String d = read_file(args[0]);
@@ -154,6 +154,23 @@ public class crack {
     }
 
     return score;
+  }
+
+  public static ArrayList<String> read_into_array(String fname) {
+    ArrayList<String> wordlist = new ArrayList<String>();
+    try {
+      File f = new File(fname);
+      Scanner s = new Scanner(f);
+
+      while (s.hasNext()) {
+        wordlist.add(s.next().toUpperCase());
+      }
+
+      return wordlist;
+    }
+    catch (IOException e) {
+      return wordlist;
+    }
   }
 
   public static String read_file(String fname) {
