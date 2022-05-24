@@ -24,6 +24,10 @@ Out travelling.
 (15:15)Encode officially works, probably! Will test further throughout the day and begin work on decode.java.
 (15:35)Modified to allow taking numbers in the message. Testing has revealed no problems so far.
 
+##5/24
+(15:35)Worked on decode function. Somewhat lost. Essentially trying to populate a matrix in alphabetical order then pull from there. 
+
+
 #Jason Zhou
 ##5/16 - 5/18
 Researching double transposition ciphers and strategies to crack without keys
