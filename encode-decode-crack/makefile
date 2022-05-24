@@ -8,5 +8,5 @@ decode:
 	java lab1.java $(ARGS)
 
 crack:
-	$javac crack.java
-	$java crack $(ARGS)
+	@javac crack.java
+	@java crack $(ARGS)
