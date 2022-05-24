@@ -6,3 +6,7 @@ distance:
 	java distance.java $(ARGS)
 decode:
 	java lab1.java $(ARGS)
+
+crack:
+	$javac crack.java
+	$java crack $(ARGS)
