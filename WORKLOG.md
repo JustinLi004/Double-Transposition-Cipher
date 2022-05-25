@@ -47,9 +47,15 @@ Worked on tweaking scoring and scoring strings higher if they contain expected w
 #5/24
 Worked on file inputs and cleaning up errors.
 
+#5/25
+Worked on creating keys from English words and presentation.
+
 #Sources
 Initial information + encoding/decoding methodology
 https://www.pbs.org/wgbh/nova/decoding/doubtrans.html#:~:text=Double%20Transposition%20consists%20of%20two,they%20may%20use%20different%20keys.&text=Now%20number%20the%20letters%20in%20the%20keyword%20in%20alphabetical%20order.
 
 English bigrams & trigrams
 https://www3.nd.edu/~busiforc/handouts/cryptography/Letter%20Frequencies.html
+
+English wordlist
+https://github.com/jnoodle/English-Vocabulary-Word-List/edit/master/Oxford%205000.txt
