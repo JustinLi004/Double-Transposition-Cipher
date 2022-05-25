@@ -4,29 +4,30 @@ import java.util.regex.*;
 
 public class crack {
   public static void main(String[] args) {
-    if (args.length < 2) {
-      System.out.println("USAGE:");
-      System.out.println("make crack ARGS=\"<filename path> <config file path>\"");
-      return;
-    }
-    String d = read_file(args[0]);
-    // System.out.println(d.length());
-    // ArrayList<Integer> order = random_key_int(9);
-    // order = random_key(order);
-    // int set_key[] = {3, 7, 5, 2, 4, 6, 1, 8};
-    // ArrayList<Integer> key = new ArrayList<Integer>();
-    // for (int i : set_key) {
-    //   key.add(i-1);
+    // if (args.length < 2) {
+    //   System.out.println("USAGE:");
+    //   System.out.println("make crack ARGS=\"<filename path> <config file path>\"");
+    //   return;
     // }
+    // String d = read_file(args[0]);
+    // // System.out.println(d.length());
+    // // ArrayList<Integer> order = random_key_int(9);
+    // // order = random_key(order);
+    // // int set_key[] = {3, 7, 5, 2, 4, 6, 1, 8};
+    // // ArrayList<Integer> key = new ArrayList<Integer>();
+    // // for (int i : set_key) {
+    // //   key.add(i-1);
+    // // }
+    // //
+    // // System.out.println(decode(d, key));
     //
-    // System.out.println(decode(d, key));
+    // crack(d, args[1]);
 
-    crack(d, args[1]);
+    key_to_int("describe");
   }
 
   public static void crack(String enc, String fname) {
     ArrayList<String> wordlist = read_into_array(fname);
-
     if (enc.length() == 0) return;
     // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
     // ArrayList<Integer> key1 = new ArrayList<Integer>();
@@ -206,6 +207,11 @@ public class crack {
     for (int i = 0; i < key.length(); i++) {
       order[i] = (int) key.charAt(i);
     }
+
+    for (int i = 0; i < key.length(); i++) {
+      int low = lowest_index(order);
+      order[low] = i;
+    }
     System.out.println(Arrays.toString(order));
     return order;
   }
@@ -229,5 +235,19 @@ public class crack {
     Collections.swap(order, r1, r2);
 
     return order;
+  }
+
+  public static int lowest_index(int[] arr) {
+    int index = 0;
+    int lowest = 100;
+    int lowest_index = 0;
+    for (int i : arr) {
+      if (i >= 65 && i < 65 + 26 && i < lowest) {
+        lowest_index = index;
+        lowest = i;
+      }
+      index++;
+    }
+    return lowest_index;
   }
 }
