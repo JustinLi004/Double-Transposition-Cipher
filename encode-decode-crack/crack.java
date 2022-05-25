@@ -21,47 +21,11 @@ public class crack {
     //
     // System.out.println(decode(d, key));
 
-    crack(d);
+    crack(d, args[1]);
   }
 
-  public static void single_crack(String enc) {
-    // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
-    // ArrayList<Integer> key = new ArrayList<Integer>();
-    // for (int i : set_key) {
-    //   key.add(i-1);
-    // }
-
-    ArrayList<Integer> key1 = random_key_int(6);
-    ArrayList<Integer> high_key = new ArrayList<Integer>();
-    String first_out = decode(enc, key1);
-
-    // int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
-    // key = new ArrayList<Integer>();
-    // for (int i : set_key2) {
-    //   key.add(i-1);
-    // }
-
-    float highest = 0;
-    int counter = 0;
-
-    for (int k = 0; k < 1000000; k++) {
-
-      key1 = random_key(key1);
-      first_out = decode(enc, key1);
-      float s = score(first_out);
-
-      if (s > highest) {
-        highest = s;
-        high_key = key1;
-        System.out.println(s + "\t" + first_out);
-      }
-      else {
-        key1 = high_key;
-      }
-    }
-  }
-
-  public static void crack(String enc) {
+  public static void crack(String enc, String fname) {
+    ArrayList<String> wordlist = read_into_array(fname);
 
     if (enc.length() == 0) return;
     // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
@@ -89,7 +53,7 @@ public class crack {
 
       key2 = random_key(key2);
       String second_out = decode(first_out, key2);
-      float s = score(second_out);
+      float s = score(second_out, wordlist);
 
       if (s > highest) {
         highest = s;
@@ -111,7 +75,7 @@ public class crack {
     }
   }
 
-  public static float score(String enc) {
+  public static float score(String enc, ArrayList<String> wl) {
     String bigrams[] = {"TH", "HE", "IN", "EN", "NT", "RE", "ER", "AN", "TI", "ES", "ON", "AT", "SE", "ND", "OR", "AR", "AL", "TE", "CO", "DE", "TO", "RA", "ET", "ED", "IT", "SA", "EM", "RO"};
     String trigrams[] = {"THE", "AND", "THA", "ENT", "ING", "ION", "TIO", "FOR", "NDE", "HAS", "NCE", "EDT", "TIS", "OFT", "STH", "MEN"};
     String desired_words[] = {"MOTHER", "FATHER", "HAMSTER", "ELDERBERRIES"};
@@ -141,7 +105,7 @@ public class crack {
       score += (3.5 * count);
     }
 
-    for (String d: desired_words) {
+    for (String d: wl) {
       for (int i = 0; i < d.length() - 3; i++) {
         Pattern p = Pattern.compile(d.substring(i, i + 3));
         Matcher m = p.matcher(enc);
