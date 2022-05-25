@@ -25,7 +25,7 @@ Out travelling.
 (15:35)Modified to allow taking numbers in the message. Testing has revealed no problems so far.
 
 ##5/24
-(15:35)Worked on decode function. Somewhat lost. Essentially trying to populate a matrix in alphabetical order then pull from there. 
+(15:35)Worked on decode function. Somewhat lost. Essentially trying to populate a matrix in alphabetical order then pull from there.
 
 
 #Jason Zhou
@@ -43,6 +43,9 @@ Testing a simple hill climbing method where the code searches for common bigrams
 
 #5/23
 Worked on tweaking scoring and scoring strings higher if they contain expected words and a sufficiently large substring.
+
+#5/24
+Worked on file inputs and cleaning up errors.
 
 #Sources
 Initial information + encoding/decoding methodology
