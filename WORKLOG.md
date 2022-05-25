@@ -27,6 +27,10 @@ Out travelling.
 ## 5/24
 (15:35)Worked on decode function. Somewhat lost. Essentially trying to populate a matrix in alphabetical order then pull from there.
 
+## 5/25
+Still no luck. Decode is genuinely baffling me somewhat. As far as I can tell I have to keep it on the same column, but it's going rowwise no matter what????
+
+EDIT: also had encode.java add 'null' characters to potentially make decode.java easier to deal with down the line. still bashing my head against the wall re: decode.java though.
 
 # Jason Zhou
 ## 5/16 - 5/18
@@ -59,3 +63,7 @@ https://www3.nd.edu/~busiforc/handouts/cryptography/Letter%20Frequencies.html
 
 English wordlist
 https://github.com/jnoodle/English-Vocabulary-Word-List/edit/master/Oxford%205000.txt
+
+Source for the encode.java work
+https://programsinengineering.blogspot.com/2016/10/implement-double-transposition-cipher.html
+

@@ -57,7 +57,7 @@ public class decode {
   					}
   				}
           System.out.println();
-          //keyarray[k] = '*';
+          keyarray[k] = '*';
   				//messageshift = messageshift + append;
   				//System.out.println(messageshift);
   			}
@@ -100,7 +100,7 @@ public class decode {
   			for(int x = 0; x < leng; x++) {
   				char charatx = holder.charAt(x);
   				int intchar = (int)(charatx);
-  				if(((intchar >= 65)&(intchar <=90)) || ((intchar >= 48) & (intchar <= 57))) {
+  				if(((intchar >= 65)&(intchar <=90)) || ((intchar >= 48) & (intchar <= 57)) || (intchar == 42)){
 
   					wordsin = wordsin + String.valueOf(charatx);
   					//System.out.println(charatx);

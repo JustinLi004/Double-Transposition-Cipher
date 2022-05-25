@@ -22,12 +22,19 @@ public class encode {
   	//System.out.println(rows);
   	char[][] messagematrix = new char[columns][rows];
 
-  	char[] messarray = message.toCharArray();
+
 
   	char[] keyarray = key.toCharArray();
     //char[] keyarray1 = keyarraymaker(keyarray);
 
   	char[] keyarray1 = new char[keyarray.length];
+    if (messagelength % columns != 0) {
+    for (int i = 0; i < (columns - (messagelength % columns)); i++) {
+        message += "*";
+    }
+      messagelength = messagelength + (columns - (messagelength % columns));
+    }
+    char[] messarray = message.toCharArray();
     for(int i = 0; i < keyarray1.length; i++){
   		keyarray1[i] = keyarray[i];
       System.out.print(keyarray[i] + " ");
@@ -102,7 +109,7 @@ public class encode {
   			for(int x = 0; x < leng; x++) {
   				char charatx = holder.charAt(x);
   				int intchar = (int)(charatx);
-  				if(((intchar >= 65)&(intchar <=90)) || ((intchar >= 48) & (intchar <= 57))) {
+  				if(((intchar >= 65)&(intchar <=90)) || ((intchar >= 48) & (intchar <= 57)) || (intchar == 42)){
 
   					wordsin = wordsin + String.valueOf(charatx);
   					//System.out.println(charatx);
