@@ -42,13 +42,13 @@ public class encode {
   	//	System.out.print(keyarray[i] + " ");
   	//}
   	//System.out.println();
-  	//String messageshift = "";
+  	String messageshift = "";
   	int charnum = 0;
   	//populates charmatrix;
   	for(int i = 0; i < rows; i++){
   	  for(int k = 0; k < columns; k++){
   	  	if(charnum >= messagelength){
-  	  		//messagematrix[k][i] = ' ';
+  	  		//messagematrix[k][i] = '';
 			continue;
 		}
 		else{

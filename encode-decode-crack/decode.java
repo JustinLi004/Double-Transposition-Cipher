@@ -6,9 +6,9 @@ public class decode {
   public static void main(String[] args) throws FileNotFoundException {
     String message = wordsin(args[0]);
     String[] keys = keygrabber(args[1]);
-    String messagepart1 = columnshift(message, keys[0]);
+    String messagepart1 = columnshift(message, keys[1]);
     //System.out.println(messagepart1);
-    String messagepart2 = columnshift(messagepart1, keys[1]);
+    String messagepart2 = columnshift(messagepart1, keys[0]);
     System.out.println(messagepart2);
 
 }
@@ -22,7 +22,7 @@ public class decode {
   	//System.out.println(rows);
   	char[][] messagematrix = new char[columns][rows];
 
-  	//char[] messarray = message.toCharArray();
+  	char[] messarray = message.toCharArray();
 
   	char[] keyarray = key.toCharArray();
     //char[] keyarray1 = keyarraymaker(keyarray);
@@ -39,12 +39,29 @@ public class decode {
   	int charnum = 0;
   	//populates charmatrix;
   	charnum = 0;
-  	int len = keyarray.length;
-
-  	for(int i = 0; i < columns; i++){
+    int len = keyarray.length;
+  	for(int i = 0; i < len; i++){
   		char current = keyarray1[i];
-      for(int n = 0; int )
+  		for(int k = 0; k < len; k++){
+  			if(keyarray[k] == current){
 
+  				String append = "";
+  				for(int n = 0; n < messagematrix[k].length; n++){
+  					if(charnum < messarray.length){
+  						messagematrix[k][n] = messarray[charnum];
+              charnum++;
+              System.out.print(messagematrix[k][n] + " ");
+            }
+  					else{
+  						continue;
+  					}
+  				}
+          System.out.println();
+          //keyarray[k] = '*';
+  				//messageshift = messageshift + append;
+  				//System.out.println(messageshift);
+  			}
+  		}
   	}
     charnum = 0;
     String append = "";
