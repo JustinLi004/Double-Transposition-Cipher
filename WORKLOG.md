@@ -64,7 +64,7 @@ https://www3.nd.edu/~busiforc/handouts/cryptography/Letter%20Frequencies.html
 
 English wordlist
 https://github.com/jnoodle/English-Vocabulary-Word-List/edit/master/Oxford%205000.txt
+https://github.com/jnoodle/English-Vocabulary-Word-List/blob/master/Oxford%203000.txt
 
 Source for the encode.java work
 https://programsinengineering.blogspot.com/2016/10/implement-double-transposition-cipher.html
-
