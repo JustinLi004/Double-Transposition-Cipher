@@ -7,62 +7,67 @@ public class decode {
     String message = wordsin(args[0]);
     String[] keys = keygrabber(args[1]);
     String messagepart1 = columnshift(message, keys[1]);
-    //System.out.println(messagepart1);
+    System.out.println(messagepart1);
     String messagepart2 = columnshift(messagepart1, keys[0]);
     System.out.println(messagepart2);
 
 }
   public static String columnshift(String message, String key){
+
   	//System.out.println(message);
   	//System.out.println(key);
   	int columns = key.length();
-  	int rows = 1 + (message.length()/columns);
+  	int rows = (message.length()/columns);
   	int messagelength = message.length();
-  	//System.out.println(columns);
-  	//System.out.println(rows);
+  	System.out.println(columns);
+  	System.out.println(rows);
   	char[][] messagematrix = new char[columns][rows];
-
-  	char[] messarray = message.toCharArray();
-
   	char[] keyarray = key.toCharArray();
     //char[] keyarray1 = keyarraymaker(keyarray);
-
   	char[] keyarray1 = new char[keyarray.length];
+
   	for(int i = 0; i < keyarray1.length; i++){
   		keyarray1[i] = keyarray[i];
       System.out.print(keyarray[i] + " ");
   	}
     System.out.println();
-  	Arrays.sort(keyarray1);
-    for(int i = 0; i < keyarray1.length; i++){
-      System.out.print(keyarray1[i] + " ");
-    }
-    System.out.println();
-  	String messageshift = "";
+
+    Arrays.sort(keyarray1);
+    char[] messarray = message.toCharArray();
+
 
   	int charnum = 0;
   	//populates charmatrix;
   	charnum = 0;
 
-    for(int n = 0; n < columns; n++){
-    for(int i = 0; i < rows; i++){
-      if(keyarray1[n]==keyarray[i]){
-  	  for(int k = 0; k < columns; k++){
+    for(int i = 0; i < columns; i++){
+  		char current = keyarray1[i];
+  		for(int k = 0; k < columns; k++){
+  			if(keyarray[k] == current){
+  				for(int n = 0; n < rows; n++){
+  					if(charnum < messarray.length){
+  						messagematrix[k][n] = message.charAt(charnum);
+              charnum++;
+            }
 
-  	  	if(charnum >= messagelength){
-  	  		//messagematrix[k][i] = '';
-			continue;
-		}
-		else{
-  	  	messagematrix[k][i] = messarray[charnum];
-  	  	charnum++;
-  	  	}
-  	  	System.out.print(messagematrix[k][i] + " ");
+  					else{
+  						continue;
+  					}
+  				}
+          keyarray[k] = '*';
 
-  	  }
-  	  System.out.println();
-    }
+  				//System.out.println(messageshift);
+  			}
+  		}
   	}
+
+
+
+  for(int i = 0; i < rows; i++){
+    for(int k = 0; k < columns; k++){
+      System.out.print(messagematrix[k][i] + " ");
+    }
+    System.out.println();
   }
 
 
@@ -72,14 +77,10 @@ public class decode {
     //Pull message back out from the matrix.
     for(int i = 0; i < rows; i++){
       for(int k = 0; k < columns; k++){
-        if(charnum >= messagelength){
-          //messagematrix[k][i] = ' ';
-      continue;
-    }
-    else{
+
         append = append + messagematrix[k][i];
         charnum++;
-        }
+
         //System.out.print(messagematrix[k][i] + " ");
 
       }

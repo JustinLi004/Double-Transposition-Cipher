@@ -18,9 +18,8 @@ public class encode {
   	int columns = key.length();
   	int rows = 1 + (message.length()/columns);
   	int messagelength = message.length();
-  	//System.out.println(columns);
-  	//System.out.println(rows);
-  	char[][] messagematrix = new char[columns][rows];
+  	System.out.println(columns);
+  	System.out.println(rows);
 
 
 
@@ -28,13 +27,8 @@ public class encode {
     //char[] keyarray1 = keyarraymaker(keyarray);
 
   	char[] keyarray1 = new char[keyarray.length];
-    if (messagelength % columns != 0) {
-    for (int i = 0; i < (columns - (messagelength % columns)); i++) {
-        message += "*";
-    }
-      messagelength = messagelength + (columns - (messagelength % columns));
-    }
-    char[] messarray = message.toCharArray();
+
+
     for(int i = 0; i < keyarray1.length; i++){
   		keyarray1[i] = keyarray[i];
       System.out.print(keyarray[i] + " ");
@@ -43,6 +37,17 @@ public class encode {
   	Arrays.sort(keyarray1);
   	String messageshift = "";
   	int charnum = 0;
+    if (messagelength % columns != 0) {
+      for (int i = 0; i < (columns - (messagelength % columns)); i++) {
+        message += "*";
+    }
+        messagelength = messagelength + (columns - (messagelength % columns));
+    }
+    messagelength = message.length();
+    rows = 1 + (message.length()/columns);
+    char[][] messagematrix = new char[columns][rows];
+    char[] messarray = message.toCharArray();
+
   	//populates charmatrix;
   	for(int i = 0; i < rows; i++){
   	  for(int k = 0; k < columns; k++){
