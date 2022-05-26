@@ -9,7 +9,7 @@ public class crack {
     //   System.out.println("make crack ARGS=\"<filename path> <config file path>\"");
     //   return;
     // }
-    // String d = read_file(args[0]);
+    String d = read_file(args[0]);
     // // System.out.println(d.length());
     // // ArrayList<Integer> order = random_key_int(9);
     // // order = random_key(order);
@@ -23,27 +23,57 @@ public class crack {
     //
     // crack(d, args[1]);
 
-    key_to_int("describe");
+    brute_crack(d);
   }
+
+  public static void brute_crack(String enc) {
+    ArrayList<ArrayList<Integer>> wordlist = new ArrayList<ArrayList<Integer>>();
+
+    try {
+      File f = new File("english.txt");
+      Scanner s = new Scanner(f);
+      while (s.hasNext()) {
+        wordlist.add(key_to_int(s.next()));
+      }
+
+      float highest = 0;
+      for (int i = 0; i < wordlist.size(); i++) {
+        for (int j = 0; j < wordlist.size(); j++) {
+          ArrayList<Integer> key1 = wordlist.get(i);
+          ArrayList<Integer> key2 = wordlist.get(j);
+
+          String sol = decode(decode(enc, key1), key2);
+          float score = score(sol);
+
+          if (score > highest) {
+            highest = score;
+            System.out.println(score + "\t" + sol);
+          }
+        }
+      }
+
+
+
+
+
+
+
+
+
+
+
+    }
+    catch (IOException e) { System.out.println("File not found"); }
+  }
+
 
   public static void crack(String enc, String fname) {
     ArrayList<String> wordlist = read_into_array(fname);
     if (enc.length() == 0) return;
-    // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
-    // ArrayList<Integer> key1 = new ArrayList<Integer>();
-    // for (int i : set_key) {
-    //   key1.add(i-1);
-    // }
 
     ArrayList<Integer> key1 = random_key_int(6);
 
     String first_out = decode(enc, key1);
-
-    // int set_key2[] = {3, 4, 8, 2, 7, 6, 1, 5};
-    // key = new ArrayList<Integer>();
-    // for (int i : set_key2) {
-    //   key.add(i-1);
-    // }
 
     ArrayList<Integer> key2 = random_key_int(6);
     ArrayList<Integer> high_key = new ArrayList<Integer>();
@@ -76,10 +106,41 @@ public class crack {
     }
   }
 
+  public static float score(String enc) {
+    String bigrams[] = {"TH", "HE", "IN", "EN", "NT", "RE", "ER", "AN", "TI", "ES", "ON", "AT", "SE", "ND", "OR", "AR", "AL", "TE", "CO", "DE", "TO", "RA", "ET", "ED", "IT", "SA", "EM", "RO"};
+    String trigrams[] = {"THE", "AND", "THA", "ENT", "ING", "ION", "TIO", "FOR", "NDE", "HAS", "NCE", "EDT", "TIS", "OFT", "STH", "MEN"};
+
+    float score = 0;
+    for (String b: bigrams) {
+      Pattern p = Pattern.compile(b);
+      Matcher m = p.matcher(enc);
+
+      int count = 0;
+      while (m.find()) {
+        count++;
+      }
+
+      score += (1 * count);
+    }
+
+    for (String t: trigrams) {
+      Pattern p = Pattern.compile(t);
+      Matcher m = p.matcher(enc);
+
+      int count = 0;
+      while (m.find()) {
+        count++;
+      }
+
+      score += (3.5 * count);
+    }
+
+    return score;
+  }
+
   public static float score(String enc, ArrayList<String> wl) {
     String bigrams[] = {"TH", "HE", "IN", "EN", "NT", "RE", "ER", "AN", "TI", "ES", "ON", "AT", "SE", "ND", "OR", "AR", "AL", "TE", "CO", "DE", "TO", "RA", "ET", "ED", "IT", "SA", "EM", "RO"};
     String trigrams[] = {"THE", "AND", "THA", "ENT", "ING", "ION", "TIO", "FOR", "NDE", "HAS", "NCE", "EDT", "TIS", "OFT", "STH", "MEN"};
-    String desired_words[] = {"MOTHER", "FATHER", "HAMSTER", "ELDERBERRIES"};
 
     float score = 0;
     for (String b: bigrams) {
@@ -156,12 +217,6 @@ public class crack {
 
   public static String decode(String c, ArrayList<Integer> o) {
 
-    // int set_key[] = {2, 7, 1, 8, 9, 5, 4, 6, 3};
-    // o = new ArrayList<Integer>();
-    // for (int i : set_key) {
-    //   o.add(i-1);
-    // }
-
     char arr[][];
 
     int ind = 0;
@@ -201,7 +256,7 @@ public class crack {
     }
   }
 
-  public static int[] key_to_int(String key) {
+  public static ArrayList<Integer> key_to_int(String key) {
     key = key.toUpperCase();
     int order[] = new int[key.length()];
     for (int i = 0; i < key.length(); i++) {
@@ -212,8 +267,13 @@ public class crack {
       int low = lowest_index(order);
       order[low] = i;
     }
-    System.out.println(Arrays.toString(order));
-    return order;
+
+    ArrayList<Integer> output = new ArrayList<Integer>();
+    for (int i : order) {
+      output.add(i);
+    }
+
+    return output;
   }
 
   public static ArrayList<Integer> random_key_int(int len) {
