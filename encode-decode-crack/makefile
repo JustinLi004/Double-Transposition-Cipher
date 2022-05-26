@@ -1,5 +1,5 @@
 default:
-	echo "Run encode, crack, decode, with the following syntax: [command]..."
+	echo "Run encode, crack, decode, with the following syntax: [command] $ARGS: [files]..."
 encode:
 	@javac encode.java
 	@java encode.java $(ARGS)
