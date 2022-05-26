@@ -4,11 +4,14 @@ import java.util.regex.*;
 
 public class crack {
   public static void main(String[] args) {
-    // if (args.length < 2) {
-    //   System.out.println("USAGE:");
-    //   System.out.println("make crack ARGS=\"<filename path> <config file path>\"");
-    //   return;
-    // }
+    if (args.length < 2) {
+      System.out.println("USAGE:");
+      System.out.println("make crack ARGS=\"<flag> <filename path> <config file path>\"" + "\n");
+      System.out.println("AVAILABLE FLAGS:");
+      System.out.println("-D" + "\t" + "Dictionary Attack");
+      System.out.println("-H" + "\t" + "Hill Climbing Attack");
+      return;
+    }
     String d = read_file(args[0]);
     // // System.out.println(d.length());
     // // ArrayList<Integer> order = random_key_int(9);
