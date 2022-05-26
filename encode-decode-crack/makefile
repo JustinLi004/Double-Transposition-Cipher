@@ -1,11 +1,11 @@
 default:
-	echo "Run frequency, distance, or decode..."
-frequency:
-	java letterfreq.java $(ARGS)
-distance:
-	java distance.java $(ARGS)
+	echo "Run encode, crack, decode, with the following syntax: [command]..."
+encode:
+	@javac encode.java
+	@java encode.java $(ARGS)
 decode:
-	java lab1.java $(ARGS)
+	@javac decode.java
+	@java decode.java $(ARGS)
 
 crack:
 	@javac crack.java
