@@ -437,7 +437,7 @@ deadly
 dealer
 debris
 debut
-decision-making
+decisionmaking
 decisive
 declaration
 dedicated
@@ -682,7 +682,7 @@ feminist
 fever
 fibre
 fierce
-film-maker
+filmmaker
 filter
 firearm
 firefighter
@@ -727,7 +727,7 @@ frustrated
 frustrating
 frustration
 fulfil
-full-time
+fulltime
 functional
 fundamentally
 fundraising
@@ -793,7 +793,7 @@ hence
 heritage
 hidden
 hierarchy
-high-profile
+highprofile
 highway
 hilarious
 historian
@@ -939,7 +939,7 @@ ladder
 landing
 landlord
 landmark
-large-scale
+largescale
 laser
 lately
 latter
@@ -968,7 +968,7 @@ lighting
 likelihood
 likewise
 limitation
-line-up
+lineup
 linear
 linger
 listing
@@ -980,8 +980,8 @@ litter
 liver
 lobby
 logic
-long-standing
-long-time
+longstanding
+longtime
 lottery
 loyal
 loyalty
@@ -996,7 +996,7 @@ mainland
 mainstream
 maintenance
 major
-make-up
+makeup
 making
 mandate
 mandatory
@@ -1099,7 +1099,7 @@ noble
 nominate
 nomination
 nominee
-non-profit
+nonprofit
 nonetheless
 nonsense
 notable
@@ -1168,7 +1168,7 @@ parameter
 parental
 parish
 parliamentary
-part-time
+parttime
 partial
 partially
 participation
@@ -1208,7 +1208,7 @@ plunge
 portfolio
 portion
 portray
-post-war
+postwar
 postpone
 potentially
 practitioner
@@ -1448,7 +1448,7 @@ sensitivity
 sentiment
 separation
 serial
-set-up
+setup
 settlement
 settler
 severely
@@ -1461,7 +1461,7 @@ shipping
 shocking
 shoot
 shore
-short-term
+shortterm
 shortage
 shortly
 shrink
@@ -1480,7 +1480,7 @@ slash
 slavery
 slogan
 smash
-so-called
+socalled
 socialist
 solely
 solicitor
@@ -1643,7 +1643,7 @@ thereby
 thesis
 thorough
 thoroughly
-thought-provoking
+thoughtprovoking
 thoughtful
 thread
 threshold
@@ -1768,7 +1768,7 @@ weave
 weekly
 weird
 welfare
-well-being
+wellbeing
 whatsoever
 wheat
 whereby
@@ -1791,6 +1791,5 @@ worship
 worthwhile
 worthy
 wrist
-yell
 yield
 youngster
