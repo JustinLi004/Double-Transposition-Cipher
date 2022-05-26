@@ -41,14 +41,6 @@ public class encode {
   	}
     System.out.println();
   	Arrays.sort(keyarray1);
-  	//for(int i = 0; i < keyarray1.length; i++){
-  	//	System.out.print(keyarray1[i] + " ");
-  	//}
-  	//System.out.println();
-  	//for(int i = 0; i < keyarray1.length; i++){
-  	//	System.out.print(keyarray[i] + " ");
-  	//}
-  	//System.out.println();
   	String messageshift = "";
   	int charnum = 0;
   	//populates charmatrix;

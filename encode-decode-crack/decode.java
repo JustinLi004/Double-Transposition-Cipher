@@ -34,35 +34,39 @@ public class decode {
   	}
     System.out.println();
   	Arrays.sort(keyarray1);
+    for(int i = 0; i < keyarray1.length; i++){
+      System.out.print(keyarray1[i] + " ");
+    }
+    System.out.println();
   	String messageshift = "";
 
   	int charnum = 0;
   	//populates charmatrix;
   	charnum = 0;
-    int len = keyarray.length;
-  	for(int i = 0; i < len; i++){
-  		char current = keyarray1[i];
-  		for(int k = 0; k < len; k++){
-  			if(keyarray[k] == current){
 
-  				String append = "";
-  				for(int n = 0; n < messagematrix[k].length; n++){
-  					if(charnum < messarray.length){
-  						messagematrix[k][n] = messarray[charnum];
-              charnum++;
-              System.out.print(messagematrix[k][n] + " ");
-            }
-  					else{
-  						continue;
-  					}
-  				}
-          System.out.println();
-          keyarray[k] = '*';
-  				//messageshift = messageshift + append;
-  				//System.out.println(messageshift);
-  			}
-  		}
+    for(int n = 0; n < columns; n++){
+    for(int i = 0; i < rows; i++){
+      if(keyarray1[n]==keyarray[i]){
+  	  for(int k = 0; k < columns; k++){
+
+  	  	if(charnum >= messagelength){
+  	  		//messagematrix[k][i] = '';
+			continue;
+		}
+		else{
+  	  	messagematrix[k][i] = messarray[charnum];
+  	  	charnum++;
+  	  	}
+  	  	System.out.print(messagematrix[k][i] + " ");
+
+  	  }
+  	  System.out.println();
+    }
   	}
+  }
+
+
+
     charnum = 0;
     String append = "";
     //Pull message back out from the matrix.
