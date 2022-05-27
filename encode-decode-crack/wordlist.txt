@@ -1,0 +1,12 @@
+north
+east
+west
+south
+morning
+afternoon
+evening
+low
+high
+system
+pressure
+storm
