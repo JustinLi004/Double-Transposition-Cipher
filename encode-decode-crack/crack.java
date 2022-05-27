@@ -12,21 +12,15 @@ public class crack {
       System.out.println("-H" + "\t" + "Hill Climbing Attack");
       return;
     }
-    String d = read_file(args[0]);
-    // // System.out.println(d.length());
-    // // ArrayList<Integer> order = random_key_int(9);
-    // // order = random_key(order);
-    // // int set_key[] = {3, 7, 5, 2, 4, 6, 1, 8};
-    // // ArrayList<Integer> key = new ArrayList<Integer>();
-    // // for (int i : set_key) {
-    // //   key.add(i-1);
-    // // }
-    // //
-    // // System.out.println(decode(d, key));
-    //
-    // crack(d, args[1]);
 
-    brute_crack(d);
+    String d = read_file(args[1]);
+    if (args[0].equals("-D") || args[0].equals("-d")) {
+      brute_crack(d);
+    }
+
+    if (args[0].equals("-H") || args[0].equals("-H")) {
+      crack(d, args[2]);
+    }
   }
 
   public static void brute_crack(String enc) {
@@ -68,7 +62,6 @@ public class crack {
     }
     catch (IOException e) { System.out.println("File not found"); }
   }
-
 
   public static void crack(String enc, String fname) {
     ArrayList<String> wordlist = read_into_array(fname);
