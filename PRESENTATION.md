@@ -1,7 +1,7 @@
 # Double Transposition Cipher
 
 
-##Tl;dr/Overview
+##Tldr/Overview
 The Double Transposition Cipher belongs to a family of ciphers known as the Transposition Ciphers. Like all transposition ciphers, it relies on shifting the positions of the plaintext, so any ciphertext that results is essentially a permutation of the original plaintext.
 
 ## History
