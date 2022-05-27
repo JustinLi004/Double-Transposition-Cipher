@@ -31,7 +31,10 @@ Out travelling.
 Still no luck. Decode is genuinely baffling me somewhat. As far as I can tell I have to keep it on the same column, but it's going rowwise no matter what????
 
 EDIT: also had encode.java add 'null' characters to potentially make decode.java easier to deal with down the line. still bashing my head against the wall re: decode.java though.
-EDIT: Fixed the issue! I may have a version of decode.java that works after all!
+EDIT: Fixed the issue, tested it a few times! I may have a version of decode.java that works after all!
+
+## 5/26
+Worked on presentation - in particular encode/decode.
 
 # Jason Zhou
 ## 5/16 - 5/18

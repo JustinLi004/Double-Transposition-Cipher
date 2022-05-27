@@ -1,6 +1,16 @@
 # Double Transposition Cipher
+
+
+##Tl;dr/Overview
+The Double Transposition Cipher belongs to a family of ciphers known as the Transposition Ciphers. Like all transposition ciphers, it relies on shifting the positions of the plaintext, so any ciphertext that results is essentially a permutation of the original plaintext.
+
 ## History
 
+Historically, the double transposition cipher was generally considered one of the most complicated and secure ciphers that could still be reliably operated by an agent reliably in field conditions. It was used by a wide variety of organizations -- the Germans in both World Wars, and various WW2-era intelligence organizations(including the British SOE and American OSS) and anti-Nazi resistance movements.
+
+The Double Transposition Cipher, though strong in a time before modern computers, did have certain vulnerabilities even in it's day -- if two messages of the same length were sent with the same key, one could use multiple anagramming to, with some time, decode the message. This, for example, happened in the early days of WW1, when the Germans rarely changed their codes, allowing the French, for a time, to decode German messages in the lighting-fast speed of...a few days.
+
+Information about the cryptanalysis of the cipher remained classified until fairly recently.
 
 ## Encoding and Decoding
 To encode, write your key out. Then write the message out, row-wise, with the number of letters to each row being the same as the number of letters in the key. Then pull out from this matrix by the columns, in the  alphabetical order of the keys. Block off unused spaces with some sort of null key. Form it into a single string. Repeat with the next key.
