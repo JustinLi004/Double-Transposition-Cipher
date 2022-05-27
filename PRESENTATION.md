@@ -7,6 +7,19 @@ To encode, write your key out. Then write the message out, row-wise, with the nu
 
 To decode, one reverses this process; one writes out the second key, writes in the matrix columnwise in alphabetical order of the key, pulls from it rowwise, etc.
 
+### Key Generation
+ D | I | V | I | D | E | N | D
+ --- | --- | --- | --- | --- | --- | --- | ---
+ 1 | 5 | 8 | 6 | 2 | 4 | 7 | 3
+
+### Example Encoding
+D | I | V | I | D | E | N | D
+--- | --- | --- | --- | --- | --- | --- | ---
+1 | 18 | 31 | 23 | 6 | 14 | 27 | 10
+2 | 19 | 32 | 24 | 7 | 15 | 28 | 11
+3 | 20 | 33 | 25 | 8 | 16 | 29 | 12
+4 | 21 | 34 | 26 | 9 | 17 | 30 | 13
+5 | 22 | | | | | |
 ## Attack Methods
 1. Hill Climbing  
 
