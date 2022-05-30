@@ -36,6 +36,9 @@ EDIT: Fixed the issue, tested it a few times! I may have a version of decode.jav
 ## 5/26
 Worked on presentation - in particular encode/decode.
 
+##5/27
+Added a homework assignment in which students practice using the double transposition encode/decode. I consider cracking the cipher, at the moment, to be too long for a simple 15 minute assignment, while 2 decodes and 1 encode should be doable in 15-30 minutes.
+
 # Jason Zhou
 ## 5/16 - 5/18
 Researching double transposition ciphers and strategies to crack without keys
