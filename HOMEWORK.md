@@ -13,3 +13,12 @@ Solve the following problems and provide some explanation of how you did so.
 
 **Plaintext:** ``We are discovered flee at once``  
 **Keys:** ``Courier`` ``Zebra``
+
+## Bonus: (not expected to submit)
+In the ``encode-decode-crack`` folder, there is a file named ``encode.txt`` and ``wordlist.txt``.
+
+Use ``crack.java`` with the ``-H`` flag and the two files to find the message.
+
+**Note:** If the program doesn't generate a new string after 3-4 minutes, it is probably at a local maximum and you would rerun the program.
+
+The "score" for the string is 2341.
