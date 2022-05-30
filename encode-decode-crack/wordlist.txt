@@ -5,8 +5,13 @@ south
 morning
 afternoon
 evening
+early
 low
-high
 system
 pressure
 storm
+late
+early
+cloud
+shower
+possible
