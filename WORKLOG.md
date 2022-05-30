@@ -77,3 +77,6 @@ https://github.com/jnoodle/English-Vocabulary-Word-List/blob/master/Oxford%20300
 
 Source for the encode.java work
 https://programsinengineering.blogspot.com/2016/10/implement-double-transposition-cipher.html
+
+Source for general history of the cipher:
+https://en.wikipedia.org/wiki/Transposition_cipher
