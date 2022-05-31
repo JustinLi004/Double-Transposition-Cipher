@@ -14,7 +14,7 @@ Solve the following problems and provide some explanation of how you did so.
 **Plaintext:** ``We are discovered flee at once``  
 **Keys:** ``Courier`` ``Zebra``
 
-## Bonus: (not expected to submit)
+## Bonus: (no need to submit)
 In the ``encode-decode-crack`` folder, there is a file named ``encode.txt`` and ``wordlist.txt``.
 
 Use ``crack.java`` with the ``-H`` flag and the two files to find the message.
