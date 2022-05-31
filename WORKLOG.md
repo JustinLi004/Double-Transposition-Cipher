@@ -83,3 +83,6 @@ https://programsinengineering.blogspot.com/2016/10/implement-double-transpositio
 
 Source for general history of the cipher:
 https://en.wikipedia.org/wiki/Transposition_cipher
+
+Double transposition cracking:
+https://www.tandfonline.com/doi/abs/10.1080/01611194.2014.915269
