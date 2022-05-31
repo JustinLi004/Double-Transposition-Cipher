@@ -64,6 +64,9 @@ Worked on creating keys from English words and presentation.
 ## 5/26
 Worked on brute-forcing keys from English and creating command interface
 
+## 5/30
+Tweaked project files, presentation, and assignment
+
 # Sources
 Initial information + encoding/decoding methodology
 https://www.pbs.org/wgbh/nova/decoding/doubtrans.html#:~:text=Double%20Transposition%20consists%20of%20two,they%20may%20use%20different%20keys.&text=Now%20number%20the%20letters%20in%20the%20keyword%20in%20alphabetical%20order.
@@ -80,3 +83,6 @@ https://programsinengineering.blogspot.com/2016/10/implement-double-transpositio
 
 Source for general history of the cipher:
 https://en.wikipedia.org/wiki/Transposition_cipher
+
+Double transposition cracking:
+https://www.tandfonline.com/doi/abs/10.1080/01611194.2014.915269

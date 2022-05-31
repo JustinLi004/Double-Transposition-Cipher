@@ -1,7 +1,7 @@
 # Double Transposition Cipher
 
 
-##Tldr/Overview
+## Tldr/Overview
 The Double Transposition Cipher belongs to a family of ciphers known as the Transposition Ciphers. Like all transposition ciphers, it relies on shifting the positions of the plaintext, so any ciphertext that results is essentially a permutation of the original plaintext.
 
 ## History
@@ -25,6 +25,7 @@ To decode, one reverses this process; one writes out the second key, writes in t
 I | N | T | E | R | F | A | C | E
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 6 | 7 | 9 | 3 | 8 | 5 | 1 | 2 | 4
+
 ### Example Encoding
 #### First Transposition
 D | I | V | I | D | E | N | D
@@ -34,6 +35,7 @@ D | I | V | I | D | E | N | D
 3 | 20 | 33 | 25 | 8 | 16 | 29 | 12
 4 | 21 | 34 | 26 | 9 | 17 | 30 | 13
 5 | 22 | | | | | |
+
 **Output (broken in groups for readability):**  
 1, 18, 31, 23, 6,  
 14, 27, 10, 2, 19,  
@@ -52,6 +54,7 @@ T | A | B | L | E
 13 | 6 | 24 | 4 | 33
 5 | 14 | 7 | 21 | 25
 22 | 27 | 15 | 34 |
+
 **Encoded String:**  
 26, 1, 10, 8, 28,   
 9, 18, 2, 16, 11,   
