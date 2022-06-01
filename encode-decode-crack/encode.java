@@ -18,8 +18,8 @@ public class encode {
   	int columns = key.length();
   	int rows = 1 + (message.length()/columns);
   	int messagelength = message.length();
-  	System.out.println(columns);
-  	System.out.println(rows);
+  	//System.out.println(columns);
+  	//System.out.println(rows);
 
 
 
@@ -31,9 +31,9 @@ public class encode {
 
     for(int i = 0; i < keyarray1.length; i++){
   		keyarray1[i] = keyarray[i];
-      System.out.print(keyarray[i] + " ");
+      //System.out.print(keyarray[i] + " ");
   	}
-    System.out.println();
+    //System.out.println();
   	Arrays.sort(keyarray1);
   	String messageshift = "";
   	int charnum = 0;
@@ -59,10 +59,10 @@ public class encode {
   	  	messagematrix[k][i] = messarray[charnum];
   	  	charnum++;
   	  	}
-  	  	System.out.print(messagematrix[k][i] + " ");
+  	  	//System.out.print(messagematrix[k][i] + " ");
 
   	  }
-  	  System.out.println();
+  	  //System.out.println();
 
   	}
   	charnum = 0;

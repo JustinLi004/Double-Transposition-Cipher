@@ -7,7 +7,7 @@ public class decode {
     String message = wordsin(args[0]);
     String[] keys = keygrabber(args[1]);
     String messagepart1 = columnshift(message, keys[1]);
-    System.out.println(messagepart1);
+    //System.out.println(messagepart1);
     String messagepart2 = columnshift(messagepart1, keys[0]);
     System.out.println(messagepart2);
 
@@ -19,8 +19,8 @@ public class decode {
   	int columns = key.length();
   	int rows = (message.length()/columns);
   	int messagelength = message.length();
-  	System.out.println(columns);
-  	System.out.println(rows);
+  	//System.out.println(columns);
+  	//System.out.println(rows);
   	char[][] messagematrix = new char[columns][rows];
   	char[] keyarray = key.toCharArray();
     //char[] keyarray1 = keyarraymaker(keyarray);
@@ -28,9 +28,9 @@ public class decode {
 
   	for(int i = 0; i < keyarray1.length; i++){
   		keyarray1[i] = keyarray[i];
-      System.out.print(keyarray[i] + " ");
+      //System.out.print(keyarray[i] + " ");
   	}
-    System.out.println();
+    //System.out.println();
 
     Arrays.sort(keyarray1);
     char[] messarray = message.toCharArray();
@@ -65,9 +65,9 @@ public class decode {
 
   for(int i = 0; i < rows; i++){
     for(int k = 0; k < columns; k++){
-      System.out.print(messagematrix[k][i] + " ");
+      //System.out.print(messagematrix[k][i] + " ");
     }
-    System.out.println();
+    //System.out.println();
   }
 
 
